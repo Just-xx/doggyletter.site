@@ -1,0 +1,25 @@
+:root {
+  --primary: #562C0F;
+  --secondary: #CEBDAC;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  background-color: var(--primary);
+  min-height: 100vh;
+  display: flex;
+}
+
+.hero-img {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 90%;
+  border: 10px solid var(--secondary);
+  border-right: none;
+}
