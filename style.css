@@ -1,20 +1,27 @@
 :root {
   --primary: #562C0F;
   --secondary: #CEBDAC;
+  --hero-img-w: 40%;
 }
 
 body, html {
   margin: 0;
   padding: 0;
+  font-size: 19px;
+  color: #fff;
+  font-family: 'Poppins';
+  background-color: var(--primary);
+  position: relative;
 }
 
 .wrapper {
-  background-color: var(--primary);
-  min-height: 100vh;
+  height: 100vh;
+  min-height: 700px;
   display: flex;
+  position: relative;
 }
 
-.hero-img {
+.hero-img-bg {
   position: absolute;
   right: 0;
   top: 50%;
@@ -22,4 +29,141 @@ body, html {
   height: 90%;
   border: 10px solid var(--secondary);
   border-right: none;
+  width: var(--hero-img-w);
+  object-fit: cover;
+  z-index: 1;
+}
+
+.btn-container {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: var(--secondary);
+  height: 80px;
+}
+
+.btn-container button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: calc(100% - var(--hero-img-w));
+  height: 100%;
+  text-align: center;
+  font-family: 'Poppins';
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--primary);
+  padding: 0;
+  position: relative;
+  cursor: pointer;
+}
+
+.btn-container button i {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 1.1rem;
+}
+
+.main-col {
+  --mar-right: 300px;
+  --mar-left: 130px;
+  width: calc((100% - var(--hero-img-w)) - (var(--mar-left) + var(--mar-right)));
+  height: auto;
+  margin: calc(2.5% - 10px) var(--mar-right) 80px var(--mar-left);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  z-index: 1;
+  position: relative;
+}
+
+.main-col h1, .main-col h2, .main-col h3 {
+  margin: 0;
+}
+
+.home {
+  color: var(--secondary);
+  font-weight: 900;
+  font-family: 'Poppins';
+  text-decoration: none;
+  font-size: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.fa-solid.fa-paw {
+  margin-right: 5px;
+}
+
+.hero-text {
+  font-weight: 700;
+  font-size: 5.5rem;
+  line-height: 1.2;
+}
+
+h3.suggestion-que {
+  font-weight: 200;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.sug-box {
+  margin-top: 100px;
+}
+
+.suggestion {
+  font-weight: 500;
+  font-size: 1.4rem;
+}
+
+.bg-text {
+  font-size: 14rem;
+  line-height: 1;
+  font-weight: 700;
+  position: absolute;
+  opacity: .05;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  user-select: none;
+  z-index: 0;
+}
+
+@media screen and (max-height: 840px) {
+  .sug-box {margin-top: 40px;}
+  h3.suggestion-que {margin-bottom: 8px;}
+  html, body {font-size: 18px;}
+}
+
+@media screen and (max-height: 750px) {
+  html, body {font-size: 17px;}
+}
+
+@media screen and (max-width: 1800px) {
+  html, body {font-size: 17px;}
+  .main-col {
+    --mar-right: 200px;
+    --mar-left: 90px;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  html, body {font-size: 15px;}
+  :root {--hero-img-w: 50%;}
+  .main-col {
+    --mar-right: 80px;
+    --mar-left: 40px;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .hero-img-bg {display: none;}
+  .btn-container button { width: 100%; }
+  .btn-container {background-color: #fff;}
+
 }
