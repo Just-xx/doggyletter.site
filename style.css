@@ -17,10 +17,14 @@ body, html {
 .wrapper {
   height: 100vh;
   min-height: 700px;
+  min-width: 300px;
   display: flex;
   position: relative;
+  flex-direction: column;
+  overflow-y: hidden;
 }
 
+.hero-img-sm {display: none;}
 .hero-img-bg {
   position: absolute;
   right: 0;
@@ -41,6 +45,7 @@ body, html {
   left: 0;
   background-color: var(--secondary);
   height: 80px;
+  z-index: 1;
 }
 
 .btn-container button {
@@ -70,8 +75,8 @@ body, html {
   --mar-right: 300px;
   --mar-left: 130px;
   width: calc((100% - var(--hero-img-w)) - (var(--mar-left) + var(--mar-right)));
-  height: auto;
-  margin: calc(2.5% - 10px) var(--mar-right) 80px var(--mar-left);
+  height: 100%;
+  margin: 0 var(--mar-right) 80px var(--mar-left);
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -94,6 +99,12 @@ body, html {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.wrapper::before {
+  content: '';
+  height: 5%;
+  display: block;
 }
 
 .fa-solid.fa-paw {
@@ -125,7 +136,7 @@ h3.suggestion-que {
   font-size: 14rem;
   line-height: 1;
   font-weight: 700;
-  position: absolute;
+  position: fixed;
   opacity: .05;
   top: 50%;
   transform: translateY(-50%);
@@ -144,6 +155,7 @@ h3.suggestion-que {
   html, body {font-size: 17px;}
 }
 
+
 @media screen and (max-width: 1800px) {
   html, body {font-size: 17px;}
   .main-col {
@@ -161,9 +173,147 @@ h3.suggestion-que {
   }
 }
 
-@media screen and (max-width: 1050px) {
-  .hero-img-bg {display: none;}
-  .btn-container button { width: 100%; }
-  .btn-container {background-color: #fff;}
+@media screen and (max-width: 975px) {
+  html, body {font-size: 13px;}
 
+  .main-col {
+    --mar-right: 40px;
+    --mar-left: 40px;
+  }
+
+  .hero-text {
+    font-size: 4rem;
+  }
+
+  .sug-box {
+    margin-top: 50px;
+  }
+}
+
+/* SECNDARY CLIPPED PARTAL BG UNDER HERO IMG */
+.sug-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 100vw;
+  min-width: 300px;
+  transform: translateX(-50%);
+  background-color: var(--secondary);
+  clip-path: polygon(0 20%, 100% 60%, 100% 100%, 0% 100%);
+  z-index: -2;
+  display: none;
+  transition: clip-path 80ms linear;
+}
+
+.sug-box::after {
+  min-width: 300px;
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-1px);
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--secondary);
+  z-index: -2;
+  display: none;
+}
+
+@media screen and (max-width: 700px) {
+
+  html, body {
+    font-size: 15px;
+    overflow-x: scroll;
+  }
+
+  .home { position: static; }
+  .wrapper::before { display: none; }
+  .hero-text { font-size: 3.3rem; }
+  .hero-img-bg { display: none; }
+  
+  img.hero-img-sm {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border: 12px solid var(--secondary);
+    object-fit: cover;
+  }
+
+  .btn-container button { width: 100%; }
+  .btn-container {
+    background-color: #fff;
+    height: 70px;
+  }
+
+  .main-col {
+    width: 80%;
+    max-width: 400px;
+    margin: 30px auto 70px;
+    justify-content: space-between;
+  }
+
+  .main-col > * {
+    width: 100%;
+    text-align: left;
+  }
+
+  .sug-box {
+    color: var(--primary);
+    width: 100%;
+    margin: 0;
+    position: relative;
+  }
+
+  .sug-box::before, .sug-box::after {display: inline;}
+
+  .main-col::after {
+    content: '';
+    display: block;
+  }
+
+  h3.suggestion-que {
+    margin-bottom: 8px;
+    margin-top: 30px;
+    font-size: 1.1rem;
+    font-weight: 400;
+  }
+
+  .suggestion { font-size: 1.3rem; }
+  .bg-text {
+    font-size: 9rem;
+    top: 50%;
+    left: 50%;
+    line-height: 1.2s;
+    transform: translateY(-100%) translateX(-50%);
+  }
+
+}
+
+@media screen and (max-width: 330px) {
+  .sug-box::before { clip-path: polygon(0 20%, 100% 40%, 100% 100%, 0% 100%); }
+}
+
+@media screen and (max-width: 700px) and (max-height: 880px) {
+
+  .main-col {
+    margin-top: 20px;
+  }
+
+  html, body {
+    font-size: 13px;
+  }
+
+  h3.suggestion-que {
+    margin-top: 5px;
+  }
+
+  .hero-text {
+    font-size: 3rem;
+  }
+
+  .hero-img-sm {
+    height: 350px;
+  }
 }
