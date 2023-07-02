@@ -456,3 +456,40 @@ h3.suggestion-que {
   }
   
 }
+
+
+/* 4K SCRENNS */
+@media screen and (min-width: 2560px) and (min-height: 950px) {
+  html, body {
+    font-size: 26px;
+  }
+
+  .btn-container {
+    height: 120px;
+  }
+}
+
+/* POPUP SUBMIT MSG */
+.submit-msg {
+  position: fixed;
+  z-index: 200;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 1rem;
+  text-align: center;
+  background-color: #e7dacd;
+  color: var(--primary);
+  display: none;
+  transition: transform 100ms ease-in-out;
+  transform: translateY(-100%);
+}
+
+.submit-msg.active-msg {
+  display: block;
+}
+
+.submit-msg .mail {
+  font-weight: 600;
+}
