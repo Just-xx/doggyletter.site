@@ -27,10 +27,16 @@ button {
   display: flex;
   position: relative;
   flex-direction: column;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 .hero-img-sm {display: none;}
+
+.hero-img-sm, .hero-img-bg {
+  object-fit: cover;
+  object-position: 50% 0;
+}
+
 .hero-img-bg {
   position: absolute;
   right: 0;
@@ -40,7 +46,6 @@ button {
   border: 10px solid var(--secondary);
   border-right: none;
   width: var(--hero-img-w);
-  object-fit: cover;
   z-index: 1;
 }
 
@@ -415,6 +420,11 @@ h3.suggestion-que {
 
 .popup-input {
   text-align: center;
+  font-size: 1rem;
+}
+
+.popup-input::placeholder {
+  color: var(--active-sc);
 }
 
 .popup-submit {
@@ -437,6 +447,7 @@ h3.suggestion-que {
 
   .popup-input {
     text-align: left;
+    font-size: .8rem;
   }
 
   .popup-title {

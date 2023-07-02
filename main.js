@@ -3,6 +3,7 @@ const popupTrigggerBtn = document.querySelector('.btn-container button')
 const popupWrapper = document.querySelector('.popup-wrapper')
 const popupDimm = document.querySelector('.popup-dimm')
 const popupIcon = document.querySelector('.popup-title i')
+const popupSubmit = document.querySelector('.popup-submit')
 
 popupTrigggerBtn.addEventListener('click', () => {
   popupWrapper.classList.add('active');
@@ -20,5 +21,6 @@ const closePopup = () => {
 
 popupDimm.addEventListener('click', closePopup)
 popupIcon.addEventListener('click', closePopup)
+popupSubmit.addEventListener('click', closePopup)
 
 popupWrapper.style.opacity = 0;
